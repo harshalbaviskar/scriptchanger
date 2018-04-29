@@ -1,0 +1,67 @@
+﻿<textarea id="bntextid" name="bntextname" rows="8" cols="50">
+   চিত্ত যেথা ভয়শূন্য, উচ্চ যেথা শির,
+   জ্ঞান যেথা মুক্ত, যেথা গৃহের প্রাচীর
+   আপন প্রাঙ্গণতলে দিবসশর্বরী
+   বসুধারে রাখে নাই খণ্ড ক্ষুদ্র করি,
+   যেথা বাক্য হৃদয়ের উত্‍‌সমুখ হতে
+   উচ্ছ্বসিয়া উঠে, যেথা নির্বারিত স্রোতে
+   দেশে দেশে দিশে দিশে কর্মধারা ধায়
+   অজস্র সহস্রবিধ চরিতার্থতায়,
+   যেথা তুচ্ছ আচারের মরুবালুরাশি
+   বিচারের স্রোতঃপথ ফেলে নাই গ্রাসি...
+   পৌরুষেরে করে নি শতধা, নিত্য যেথা
+   তুমি সর্ব কর্ম চিন্তা আনন্দের নেতা,
+   নিজ হস্তে নির্দয় আঘাত করি, পিতঃ;
+   ভারতেরে সেই স্বর্গে করো জাগরিত॥
+</textarea> 
+<br>
+<button 
+type="button" 
+id="btbn2dvid" 
+name="btbn2dvname" 
+onclick="Convert2DevanagariFunction()"
+>Convert to Devanagari</button> 
+
+<br>
+<textarea id="dvtextid" name="dvtextname" rows="8" cols="50">
+This is where output should be.
+</textarea> 
+
+<script>
+function Convert2DevanagariFunction() {
+	var b = document.getElementById("bntextid").value;
+	var d = "";
+
+	var index, len;
+	for (index = 0, len = b.length; index < len; ++index) {
+		var ib = b.charCodeAt(index);
+		var id = ib;
+		if(ib >= 0x0980 && ib <= 0x09FF)
+		{
+			id = ib - 0x80;
+		} else if(ib >= 0x0B80 && ib <= 0x0BFF)
+		{
+			id = ib - 0x0280;
+		} else if(ib >= 0x0A00 && ib <= 0x0A7F)
+		{
+			id = ib - 0x0100;
+		} else if(ib >= 0x0A80 && ib <= 0x0AFF)
+		{
+			id = ib - 0x0180;
+		} else if(ib >= 0x0C00 && ib <= 0x0C7F)
+		{
+			id = ib - 0x0300;
+		} else if(ib >= 0x0C80 && ib <= 0x0CFF)
+		{
+			id = ib - 0x0380;
+		} else if(ib >= 0x0D00 && ib <= 0x0D7F)
+		{
+			id = ib - 0x0400;
+		}
+		var cid = String.fromCharCode(id);
+		d = d + cid;
+	}
+	document.getElementById("dvtextid").value = d;
+      // Click on the checkbox
+}
+</script>
