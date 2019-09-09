@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Change any Indic script to Devanagari</title>
+  </head>
 
-	<head>
-		<title>Change any Indic script to Devanagari</title>
-	</head>
-
-	<body>
-		<textarea id="bntextid" name="bntextname" rows="8" cols="50">
+  <body>
+    <textarea id="bntextid" name="bntextname" rows="8" cols="50">
    চিত্ত যেথা ভয়শূন্য, উচ্চ যেথা শির,
    জ্ঞান যেথা মুক্ত, যেথা গৃহের প্রাচীর
    আপন প্রাঙ্গণতলে দিবসশর্বরী
@@ -21,57 +20,70 @@
    তুমি সর্ব কর্ম চিন্তা আনন্দের নেতা,
    নিজ হস্তে নির্দয় আঘাত করি, পিতঃ;
    ভারতেরে সেই স্বর্গে করো জাগরিত॥
-		</textarea> 
-		<br>
-		<button 
-			type="button" 
-			id="btbn2dvid" 
-			name="btbn2dvname" 
-			onclick="Convert2DevanagariFunction()"
-		>Convert to Devanagari</button> 
+		</textarea
+    >
+    <br />
+    <button
+      type="button"
+      id="btbn2dvid"
+      name="btbn2dvname"
+      onclick="Convert2DevanagariFunction()"
+    >
+      Convert to Devanagari
+    </button>
 
-		<br>
-		<textarea id="dvtextid" name="dvtextname" rows="8" cols="50">
+    <br />
+    <textarea id="dvtextid" name="dvtextname" rows="8" cols="50">
 		This is where output should be.
-		</textarea> 
+		</textarea
+    >
 
-		<script>
-function Convert2DevanagariFunction() {
-	var b = document.getElementById("bntextid").value;
-	var d = "";
+    <h4>Change any Indic script to Devanagari</h4>
+    <p>
+      Write of paste copied Indic script in first Text Box and click Button
+      [Convert to Devanagari].
+    </p>
+    <p>Currently supported scripts are:</p>
+    <ul>
+      <li>Bengali</li>
+      <li>Tamil</li>
+      <li>Gurumukhi (primary language: Punjabi)</li>
+      <li>Gujarati</li>
+      <li>Telugu</li>
+      <li>Kannada</li>
+      <li>Malayalam</li>
+    </ul>
+    <p>Do give your feedback to HARSHAL (at) BAVISKAR (dot) IN</p>
+    <script>
+      function Convert2DevanagariFunction() {
+        var b = document.getElementById("bntextid").value;
+        var d = "";
 
-	var index, len;
-	for (index = 0, len = b.length; index < len; ++index) {
-		var ib = b.charCodeAt(index);
-		var id = ib;
-		if(ib >= 0x0980 && ib <= 0x09FF)
-		{
-			id = ib - 0x80;
-		} else if(ib >= 0x0B80 && ib <= 0x0BFF)
-		{
-			id = ib - 0x0280;
-		} else if(ib >= 0x0A00 && ib <= 0x0A7F)
-		{
-			id = ib - 0x0100;
-		} else if(ib >= 0x0A80 && ib <= 0x0AFF)
-		{
-			id = ib - 0x0180;
-		} else if(ib >= 0x0C00 && ib <= 0x0C7F)
-		{
-			id = ib - 0x0300;
-		} else if(ib >= 0x0C80 && ib <= 0x0CFF)
-		{
-			id = ib - 0x0380;
-		} else if(ib >= 0x0D00 && ib <= 0x0D7F)
-		{
-			id = ib - 0x0400;
-		}
-		var cid = String.fromCharCode(id);
-		d = d + cid;
-	}
-	document.getElementById("dvtextid").value = d;
-      // Click on the checkbox
-}
-		</script>
-	</body>
+        var index, len;
+        for (index = 0, len = b.length; index < len; ++index) {
+          var ib = b.charCodeAt(index);
+          var id = ib;
+          if (ib >= 0x0980 && ib <= 0x09ff) {
+            id = ib - 0x80;
+          } else if (ib >= 0x0b80 && ib <= 0x0bff) {
+            id = ib - 0x0280;
+          } else if (ib >= 0x0a00 && ib <= 0x0a7f) {
+            id = ib - 0x0100;
+          } else if (ib >= 0x0a80 && ib <= 0x0aff) {
+            id = ib - 0x0180;
+          } else if (ib >= 0x0c00 && ib <= 0x0c7f) {
+            id = ib - 0x0300;
+          } else if (ib >= 0x0c80 && ib <= 0x0cff) {
+            id = ib - 0x0380;
+          } else if (ib >= 0x0d00 && ib <= 0x0d7f) {
+            id = ib - 0x0400;
+          }
+          var cid = String.fromCharCode(id);
+          d = d + cid;
+        }
+        document.getElementById("dvtextid").value = d;
+        // Click on the checkbox
+      }
+    </script>
+  </body>
 </html>
